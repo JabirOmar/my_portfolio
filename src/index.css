@@ -77,12 +77,12 @@ textarea {
 .App {
   height: 100vh;
   overflow-y: scroll;
-  scroll-snap-type: y mandatory;
+  /* scroll-snap-type: y mandatory; */
 }
 
-.home_page,
+/* .home_page,
 .skills_page,
 .about_page,
 .contact_page {
   scroll-snap-align: start;
-}
+} */

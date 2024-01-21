@@ -23,7 +23,10 @@ function ContactPage() {
 
 
         try {
-            const response = await axios.post('https://my-porfolio-server.onrender.com', emailData);
+            const baseUrl = 'https://my-portfolio-server.onrender.com';
+            const endpoint = '/send_email';
+            let url = baseUrl + endpoint
+            const response = await axios.post(url, emailData);
             if (response.status === 200){
                 let data = response.data;
                 console.log(data)
