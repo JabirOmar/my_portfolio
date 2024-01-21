@@ -23,42 +23,42 @@ function ContactPage() {
 
 
         setErrorMsg('Server is down')
-        
+
         setTimeout(() => {
             setErrorMsg('')
         }, 2500);
 
 
-        try {
-            const baseUrl = 'https://my-portfolio-server.onrender.com';
-            const endpoint = '/send_email';
-            let url = baseUrl + endpoint
-            const response = await axios.post(url, emailData);
-            if (response.status === 200){
-                let data = response.data;
-                console.log(data)
-                setSending(false)
-                setErrorMsg('');
-                setSuccessMsg(data.msg);
-                setTimeout(() => {
-                    setSuccessMsg('')
-                }, 2500);
-            }
-        } catch (error) {
-            setSending(false)
-            setSuccessMsg('');
+        // try {
+        //     const baseUrl = 'https://my-portfolio-server.onrender.com';
+        //     const endpoint = '/send_email';
+        //     let url = baseUrl + endpoint
+        //     const response = await axios.post(url, emailData);
+        //     if (response.status === 200){
+        //         let data = response.data;
+        //         console.log(data)
+        //         setSending(false)
+        //         setErrorMsg('');
+        //         setSuccessMsg(data.msg);
+        //         setTimeout(() => {
+        //             setSuccessMsg('')
+        //         }, 2500);
+        //     }
+        // } catch (error) {
+        //     setSending(false)
+        //     setSuccessMsg('');
 
-            if (error.response) {
-                let message = error.response.data.msg
-                setErrorMsg(message)
-            }else {
-                setErrorMsg('Server is down')
-            }
+        //     if (error.response) {
+        //         let message = error.response.data.msg
+        //         setErrorMsg(message)
+        //     }else {
+        //         setErrorMsg('Server is down')
+        //     }
             
-            setTimeout(() => {
-                setErrorMsg('')
-            }, 2500);
-        }
+        //     setTimeout(() => {
+        //         setErrorMsg('')
+        //     }, 2500);
+        // }
     }
     return (
         <div className=' contact_page w-full bg-zinc-700'>
