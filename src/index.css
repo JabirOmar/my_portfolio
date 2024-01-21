@@ -1,0 +1,88 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800&display=swap'); */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('./assets/fonts/montserrat/Montserrat-Regular.ttf');
+  font-weight: 400;
+}
+
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('./assets/fonts/montserrat/Montserrat-Medium.ttf');
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('./assets/fonts/montserrat/Montserrat-SemiBold.ttf');
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('./assets/fonts/montserrat/Montserrat-Bold.ttf');
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('./assets/fonts/montserrat/Montserrat-ExtraBold.ttf');
+  font-weight: 800;
+}
+
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: 'Montserrat', cursive, 'Courier New', Courier, monospace;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+*::selection {
+  background-color: gold;
+  color: black;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+input {
+  background-color: transparent;
+}
+
+textarea {
+  background-color: transparent;
+}
+
+*:focus {
+  outline: none;
+}
+
+.App {
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+}
+
+.home_page,
+.skills_page,
+.about_page,
+.contact_page {
+  scroll-snap-align: start;
+}

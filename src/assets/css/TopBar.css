@@ -1,0 +1,29 @@
+nav {
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 3px 0px;
+}
+
+.nav_links {
+    position: relative;
+    padding: 0 1rem;
+    height: 100%;
+}
+
+.nav_links::after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    content: '';
+    width: 0;
+    height: 3px;
+    background-color: rgb(45 212 191);
+}
+
+
+.nav_links.active::after {
+    width: 100%;
+}
+
+
+.nav_icons_div {
+    display: none;
+}
