@@ -22,6 +22,13 @@ function ContactPage() {
         }
 
 
+        setErrorMsg('Server is down')
+        
+        setTimeout(() => {
+            setErrorMsg('')
+        }, 2500);
+
+
         try {
             const baseUrl = 'https://my-portfolio-server.onrender.com';
             const endpoint = '/send_email';
