@@ -22,43 +22,47 @@ function ContactPage() {
         }
 
 
-        setErrorMsg('Server is down')
+        // setErrorMsg('Server is down')
 
-        setTimeout(() => {
-            setErrorMsg('')
-        }, 2500);
+        // setTimeout(() => {
+        //     setErrorMsg('')
+        // }, 2500);
 
 
-        // try {
-        //     const baseUrl = 'https://my-portfolio-server.onrender.com';
-        //     const endpoint = '/send_email';
-        //     let url = baseUrl + endpoint
-        //     const response = await axios.post(url, emailData);
-        //     if (response.status === 200){
-        //         let data = response.data;
-        //         console.log(data)
-        //         setSending(false)
-        //         setErrorMsg('');
-        //         setSuccessMsg(data.msg);
-        //         setTimeout(() => {
-        //             setSuccessMsg('')
-        //         }, 2500);
-        //     }
-        // } catch (error) {
-        //     setSending(false)
-        //     setSuccessMsg('');
+        try {
+            const baseUrl = 'https://portfolio-server-avl2.onrender.com';
+            const endpoint = '/send_email';
+            let url = baseUrl + endpoint
+            const response = await axios.post(url, emailData);
+            if (response.status === 200){
+                let data = response.data;
+                console.log(data)
+                setSending(false)
+                setErrorMsg('');
+                setSuccessMsg(data.msg);
+                setUserName('')
+                setUserEmail('')
+                setComment('')
+                setTimeout(() => {
+                    setSuccessMsg('')
+                }, 2500);
+            }
+        } catch (error) {
+            setSending(false)
+            setSuccessMsg('');
 
-        //     if (error.response) {
-        //         let message = error.response.data.msg
-        //         setErrorMsg(message)
-        //     }else {
-        //         setErrorMsg('Server is down')
-        //     }
+            if (error.response) {
+                let message = error.response.data.msg
+                setErrorMsg(message)
+            }else {
+                setErrorMsg('Server is down')
+            }
             
-        //     setTimeout(() => {
-        //         setErrorMsg('')
-        //     }, 2500);
-        // }
+            setTimeout(() => {
+                setErrorMsg('')
+            }, 2500);
+        }
+
     }
     return (
         <div className=' contact_page w-full bg-zinc-700'>
@@ -78,7 +82,8 @@ function ContactPage() {
                         <input 
                             className=' capitalize'
                             type='text' 
-                            required placeholder='Saalim Sulaymaan Salix' 
+                            required 
+                            placeholder='Enter your name' 
                             value={userName}
                             onChange={(e) => setUserName(e.target.value)}
                         />
@@ -87,7 +92,8 @@ function ContactPage() {
                         <label>Email</label>
                         <input 
                             type='email' 
-                            placeholder='someone@example.com'
+                            placeholder='Enter your email'
+                            required
                             value={userEmail}
                             onChange={(e) => setUserEmail(e.target.value)} 
                         />
@@ -97,15 +103,19 @@ function ContactPage() {
                         <textarea 
                             className=' capitalize'
                             required 
+                            placeholder='Your comment or suggestion'
                             value={comment}
                             onChange={(e) => setComment(e.target.value)}
                         />
                     </div>  
 
-                    {errorMsg && <p className=' p-3 bg-red-300 rounded-md text-red-600 font-medium'>{errorMsg}</p>}
+                    {/* {sending && <p className=' p-3 bg-yellow-200 rounded-md '>Inprogress ...</p>} */}
+                    {errorMsg && <p className=' p-3 bg-red-600 rounded-md text-white '>{errorMsg}</p>}
                     {successMsg && <p className=' p-3 bg-green-300 rounded-md'>{successMsg}</p>}
 
-                    <button type='submit'>Submit</button> 
+                    <button type='submit' disabled={sending}>
+                        {sending ? 'Sending ...' : 'Submit'}
+                    </button> 
                 </form>
             </section>
         </div>

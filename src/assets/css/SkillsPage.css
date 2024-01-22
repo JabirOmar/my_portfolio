@@ -120,7 +120,7 @@
         grid-template-columns: repeat(2, 1fr);
     }
 }
-@media screen and (max-width: 435px) {
+@media screen and (max-width: 375px) {
     .skills_card_container {
         grid-template-columns: repeat(1, 1fr);
     }
@@ -132,6 +132,6 @@
     }
     .skill_card {
         margin: 0 auto;
-        width: 60%;
+        width: 80%;
     }
 }
